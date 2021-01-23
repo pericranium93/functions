@@ -21,10 +21,13 @@ while True:
             degree = input('Введите отрицательное число. Оно не должно быть равно 0')
         elif num < 0 or degree > 0:
             num = abs(num)
-            degree = 0 - degree
-            print(
-                f'Необходимо было ввести положительное и отрицательное числа. Введеное числа были преобразовано: {num} {degree}')
-            break
+            if degree < 0:
+                break
+            else:
+                degree = -degree
+                print(f'Необходимо было ввести положительное и отрицательное числа. Введеное числа были преобразовано:'
+                      f'{num} {degree}')
+                break
         else:
             print(f'Вы ввели цифры: {num} и {degree}')
             break
@@ -37,4 +40,3 @@ print(f'Получен результатчерез "**": {answer}')
 
 answer_2 = my_func_cycle(num, degree)
 print(f'Получен результат через цикл: {answer_2}')
-
